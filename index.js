@@ -8,10 +8,75 @@ const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
 
-app.use(express.json())
+// app.use(express.json())
 
-app.get('/Hi', (req, res) => {
-  res.send('Hi, Tom here!')
+app.use((req, res, next) => {
+  console.log('All')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('work')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('and')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('no')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('play')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('makes')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('Tom')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('a')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('dull')
+
+  return next()
+})
+
+app.use((req, res, next) => {
+  console.log('boy')
+
+  return next()
+})
+
+const middleware = (req, res, next) => {
+  console.log('AllWorkAndNoPlayMakesTomAdullBoy')
+  return next()
+}
+
+app.get('/Hi', middleware, (req, res) => {
+  res.send("Heeere's Tommy")
 }) // get mapping
 
 app.post('/createTune', (req, res) => {
