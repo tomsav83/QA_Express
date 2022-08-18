@@ -8,14 +8,16 @@ const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
 
-let tunes = [
-  {
-    name: 'Mono',
-    artist: 'BEAK>',
-    length: 3.09,
-    rating: 4.5,
-  },
-]
+const tuneRoutes = require('./routes/tunes')
+
+// let tunes = [
+//   {
+//     title: 'Mono',
+//     artist: 'BEAK>',
+//     length: 3.09,
+//     rating: 4.5,
+//   },
+// ]
 
 // app.use(express.json())
 
@@ -85,43 +87,45 @@ const middleware = (req, res, next) => {
   return next()
 }
 
-app.get('/Hi', middleware, (req, res) => {
+app.use('/tunes', middleware, tuneRoutes)
+
+app.get('/Hi', middleware, (req, res, next) => {
   res.send("Heeere's Tommy")
 }) // get mapping
 
-app.post('/createTune', (req, res, next) => {
-  console.log('BODY:', req.body)
-  if (!req.body || Object.keys(req.body).length < 1)
-    return next({ status: 400, message: 'No body' })
+// app.post('/createTune', (req, res) => {
+//   console.log('BODY:', req.body)
+//   if (!req.body || Object.keys(req.body).length < 1)
+//     return next({ status: 400, message: 'No body' })
 
-  return res.status(200).send()
-})
+//   return res.status(200).send()
+// })
 
-app.get('/getAllTunes', (req, res) => {
-  return res.send()
-})
+// app.get('/getAllTunes', (req, res) => {
+//   return res.send()
+// })
 
-app.get('/getTune/:id', (req, res) => {
-  console.log('PARAMS:', req.params)
+// app.get('/getTune/:id', (req, res) => {
+//   console.log('PARAMS:', req.params)
 
-  return res.send()
-})
+//   return res.send()
+// })
 
-app.put('/updateTune', (req, res) => {
-  console.log('QUERY:', req.query)
+// app.put('/updateTune', (req, res) => {
+//   console.log('QUERY:', req.query)
 
-  return res.send()
-})
+//   return res.send()
+// })
 
-app.delete('/removeTune/:id', (req, res) => {
-  console.log('PARAMS:', req.params)
+// app.delete('/removeTune/:id', (req, res) => {
+//   console.log('PARAMS:', req.params)
 
-  return res.send()
-})
+//   return res.send()
+// })
 
-app.use('*', (req, res, next) =>
-  next({ status: 404, message: 'Incorrect URL' })
-) // wildcard will catch any request with no endpoint and return invalid request message
+// app.use('*', (req, res, next) =>
+//   next({ status: 404, message: 'Incorrect URL' })
+// wildcard will catch any request with no endpoint and return invalid request message
 
 // let names = [  'Me', 'Jakob', 'Fred', 'Abdullah', 'Sky', 'Rayhan' ]
 
