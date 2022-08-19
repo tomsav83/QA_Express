@@ -22,68 +22,68 @@ const tuneRoutes = require('./routes/tunes')
 // app.use(express.json())
 
 app.use((req, res, next) => {
-  console.log('All')
+  // console.log('All')
 
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('work')
+  // console.log('work')
 
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('and')
+  // console.log('and')
 
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('no')
+  // console.log('no')
 
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('play')
+  // console.log('play')
 
   // return next('sleep')
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('makes')
+  // console.log('makes')
 
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('Tom')
+  // console.log('Tom')
 
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('a')
+  // console.log('a')
 
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('dull')
+  // console.log('dull')
 
   return next()
 })
 
 app.use((req, res, next) => {
-  console.log('boy')
+  // console.log('boy')
 
   return next()
 })
 
 const middleware = (req, res, next) => {
-  console.log('AllWorkAndNoPlayMakesTomAdullBoy')
+  // console.log('AllWorkAndNoPlayMakesTomAdullBoy')
   return next()
 }
 
@@ -164,3 +164,5 @@ const server = app.listen(55999, () => {
     `Server started successfully on port number ${server.address().port}`
   )
 })
+
+module.exports = server
